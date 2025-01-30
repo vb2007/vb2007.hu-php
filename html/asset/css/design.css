@@ -1,0 +1,55 @@
+body{
+    background-color: #0f1111;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p, li{
+    color: #fcfcfc;
+}
+
+p{
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 14px;
+    text-align: justify;
+}
+
+.szoveg{
+    color: #c5c2be;
+}
+
+a{
+    color: #e1590a;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #ff2a2a;
+    text-decoration: underline;
+}
+
+footer{
+    margin-top: auto;
+}
+
+#footer_text{
+    text-align: center;
+    font-size: 11px;
+}
+
+form{
+    color: rgb(48, 48, 48);
+}
+
+/* hides long original links on mobile (bootstarp is ass) */
+.originalLink {
+    max-width: 225px;
+}
+
+@media (max-width: 576px) {
+    .originalLink, .originalLinkTitle {
+        display: none;
+    }
+}

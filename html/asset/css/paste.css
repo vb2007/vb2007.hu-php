@@ -1,0 +1,33 @@
+.line-numbers-container {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.line-numbers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3rem;
+    text-align: right;
+    padding-right: 0.5rem;
+    color: #999;
+    line-height: 1.1rem;
+}
+
+/* .line-numbers .line-number {
+    counter-increment: line-number;
+}
+
+.line-numbers .line-number::before {
+    content: counter(line-number);
+    display: inline-block;
+    width: 2rem;
+    text-align: right;
+    padding-right: 0.5rem;
+} */
+
+#paste-text {
+    color: rgb(255, 255, 255);
+    line-height: 1.1rem;
+    font-size: 1.1rem;
+}
