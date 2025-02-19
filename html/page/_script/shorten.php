@@ -40,6 +40,26 @@ if(isset($_POST['url'])) {
         $shortUrl = $row['shortUrl'];
     }
     else{
+        //jelenleg bejelentkezett felhasználó neve
+        $addedBy = $_SESSION['username'];
+
+        //5 sec rate limit
+        $query = $mysqli->prepare("SELECT dateAdded FROM urlShortener WHERE addedBy = ? ORDER BY dateAdded DESC LIMIT 1");
+        $query->bind_param("s", $addedBy);
+        $query->execute();
+        $result = $query->get_result();
+        
+        if($lastUrl = $result->fetch_assoc()) {
+            $lastUrlTime = strtotime($lastUrl['dateAdded']);
+            $currentTime = time();
+            
+            if(($currentTime - $lastUrlTime) < 5) {
+                echo "Please wait 5 seconds between shortening URLs.";
+                $mysqli->close();
+                exit;
+            }
+        }
+        
         $shortUrl = generateRandomString();
 
         //megnézi létezik-e már az url az adatbázisban
@@ -52,9 +72,6 @@ if(isset($_POST['url'])) {
             $shortUrl = generateRandomString();
             $query = $mysqli->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
         }
-
-        //jelenleg bejelentkezett felhasználó neve
-        $addedBy = $_SESSION['username'];
 
         //beteszi a linket a táblába
         $query = $mysqli->prepare("INSERT INTO urlShortener (url, shortUrl, addedBy, dateAdded) VALUES (?, ?, ?, NOW())");
@@ -93,7 +110,7 @@ if(isset($_GET['shortUrl'])) {
         exit;
     }
     else{
-        echo "The shortened url couldn't be found in the database. Sowwy :(";
+        echo "The shortened url couldn't be found in the database.";
         $query->close();
         $mysqli->close();
         exit;
