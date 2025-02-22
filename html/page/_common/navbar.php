@@ -15,9 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'pastebin.php') ? 'active' : ''; ?>" href="/pastebin">Pastebin</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'download.php') ? 'active' : ''; ?>" href="/download">Download</a>
-                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link <?php //echo (basename($_SERVER['SCRIPT_NAME']) == 'download.php') ? 'active' : ''; ?>" href="/download">Download</a>
+                </li> -->
                 <li class="nav-item">
                   <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'upload.php') ? 'active' : ''; ?>" href="/upload">Upload</a>
                 </li>

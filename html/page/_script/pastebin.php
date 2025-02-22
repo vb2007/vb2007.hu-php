@@ -24,11 +24,11 @@ if(isset($_POST['paste']) && isset($_POST['pasteTitle'])) {
     $query->execute();
     $result = $query->get_result();
     
-    if($lastUrl = $result->fetch_assoc()) {
-        $lastUrlTime = strtotime($lastUrl['dateAdded']);
+    if($lastPaste = $result->fetch_assoc()) {
+        $lastPasteTime = strtotime($lastPaste['dateAdded']);
         $currentTime = time();
         
-        if(($currentTime - $lastUrlTime) < 5) {
+        if(($currentTime - $lastPasteTime) < 5) {
             echo "Please wait 5 seconds between submitting pastes.";
             $mysqli->close();
             exit;
