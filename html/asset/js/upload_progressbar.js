@@ -34,9 +34,9 @@ document.querySelector('.upload-form').addEventListener('submit', function (e) {
       if (response.success) {
         //elérési út kiírása a felhasználónak
         messageContainer.style.display = "block";
-        messageContainer.innerHTML = "The file has been uploaded. You can view or download it <a target='_blank' href='" + fileLocation + "'>here</a>.";
+        messageContainer.innerHTML = `The file has been uploaded. You can view or download it <a target='_blank' href="https://cdn.vb2007.hu/${fileLocation}">here</a>.`;
 
-        //document.body.appendChild(messageContainer);
+        // document.body.appendChild(messageContainer);
       }
       else {
         console.error(response.error);

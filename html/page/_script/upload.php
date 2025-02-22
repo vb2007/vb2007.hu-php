@@ -47,12 +47,12 @@ if ($_FILES["fileToUpload"]["error"] !== UPLOAD_ERR_OK) {
   }
 }
 
-$target_dir = "/media/seagate/cdn/useruploads/";
+$target_dir = "/mnt/raid1/cdn/useruploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $file_name = htmlspecialchars(basename($_FILES["fileToUpload"]["name"]));
 
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-  $file_location = "/test/" . $file_name;
+  $file_location = "/useruploads/" . $file_name;
 
   // Respond with the file location in JSON format
   echo json_encode(['success' => true, 'file_location' => $file_location]);
