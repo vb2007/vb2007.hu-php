@@ -31,7 +31,7 @@
         <form class="upload-form" id="url-form" action="/page/_script/shorten.php" method="post" enctype="multipart/form-data">
             <div class="upload-element mb-2 ms-5 me-5">
                 <label class="form-label" for="url"></label>
-                <input class="form-control" type="text" id="url" name="url" placeholder="Enter your URL here">
+                <input class="form-control" type="text" id="url" name="url" placeholder="Enter your URL here" required>
             </div>
             <div class="justify-content-center mb-2 ms-5 me-5">
                 <button class="form-control" onclick="shortenUrl()" type="button" value="Shorten URL">Shorten URL</button>

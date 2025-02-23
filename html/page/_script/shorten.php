@@ -28,7 +28,14 @@ function generateRandomString($length = 4) {
 //megnézi be van-e küldv a form (post)
 if(isset($_POST['url'])) {
     include "auth.php";
-    $url = $_POST['url'];
+
+    $url = trim($_POST["url"]);
+    
+    if(empty($url)) {
+        echo "Error: The URL is required..";
+        $mysqli->close();
+        exit;
+    }
 
     //megnézi az adatbázisban hogy rövidítve lett-e már a hosszú link
     $query = $mysqli->prepare("SELECT url FROM urlShortener WHERE url = ?");
