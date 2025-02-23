@@ -28,7 +28,7 @@
                   <a class="nav-link <?php //echo (basename($_SERVER['SCRIPT_NAME']) == 'discordbot.php') ? 'active' : ''; ?>" href="/discordbot">Discordbot</a>
                 </li> -->
             </ul>
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
                 <?php
                     if(!isset($_SESSION)) {
                         session_start();
@@ -39,7 +39,7 @@
                         echo "<a class='btn btn-outline-success' href='/register'>Register</a>";
                     }
                     else{
-                        echo "<p><span class='me-2 mt-3'><b>Logged in as:</b> " . $_SESSION['username'] . "</span></p>";
+                        echo "<p class='mb-0 me-2'><b>Logged in as:</b><br>" . $_SESSION['username'] . "</p>";
                         echo "<a class='btn btn-outline-primary me-2' href='/profile'>View profile</a>";
                         echo "<a class='btn btn-outline-danger' href='/page/_script/logout.php'>Log out</a>";
                     }
