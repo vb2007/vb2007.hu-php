@@ -30,7 +30,7 @@ document.querySelector('.upload-form').addEventListener('submit', function (e) {
         var fileLocation = response.file_location;
 
         //elérési út kiírása a felhasználónak
-        var messageContainer = document.getElementById("succesful-upload");
+        var messageContainer = document.getElementById("upload-status");
         messageContainer.style.display = "block";
         messageContainer.innerHTML = "The file has been uploaded. You can view or download it <a target='_blank' href='" + fileLocation + "'>here</a>.";
 

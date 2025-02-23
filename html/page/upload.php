@@ -40,7 +40,7 @@
         </form>
         <hr>
         <div>
-            <p class="ms-5 me-5" id="succesful-upload"></p>
+            <p class="ms-5 me-5" id="upload-status"></p>
         </div>
         <hr>
         <div class="container" id="progress" style="display:none;">

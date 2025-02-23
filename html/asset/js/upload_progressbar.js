@@ -7,7 +7,7 @@ document.querySelector('.upload-form').addEventListener('submit', function (e) {
   var progressBarFill = document.getElementById('bar');
   var progressBarPercent = document.getElementById('percent');
 
-  var messageContainer = document.getElementById("succesful-upload");
+  var messageContainer = document.getElementById("upload-status");
   
   var xhr = new XMLHttpRequest();
   

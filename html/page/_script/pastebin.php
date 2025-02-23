@@ -5,7 +5,7 @@ include_once("_config.php");
 $mysqli->query("CREATE TABLE IF NOT EXISTS `pastebin`(
     `id`    int(11) NOT NULL AUTO_INCREMENT,
     `pasteTitle`  text NOT NULL,
-    `paste` text DEFAULT NULL,
+    `paste` text NOT NULL,
     `addedBy`   text DEFAULT NULL,
     `dateAdded` datetime DEFAULT NULL,
     PRIMARY KEY(`id`)
@@ -35,8 +35,14 @@ if(isset($_POST['paste']) && isset($_POST['pasteTitle'])) {
         }
     }
 
-    $pasteTitle = $_POST["pasteTitle"];
-    $paste = $_POST["paste"];
+    $pasteTitle = trim($_POST["pasteTitle"]);
+    $paste = trim($_POST["paste"]);
+
+    if(empty($pasteTitle) || empty($paste)) {
+        echo "Error: Both paste title and paste content are required.";
+        $mysqli->close();
+        exit;
+    }
 
     //beteszi a linket a táblába
     $query = $mysqli->prepare("INSERT INTO pastebin (pasteTitle, paste, addedBy, dateAdded) VALUES (?, ?, ?, NOW())");
