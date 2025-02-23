@@ -1,0 +1,18 @@
+<?php
+//file's location: /html/page/_script/_config.php
+
+//Configuration values
+$databaseHost = '192.168.0.1';
+$databaseUsername = 'username';
+$databasePassword = 'securePassword';
+$databaseName = 'nginxdata';
+
+//Connects to the database
+$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
+
+//"Handle" errors
+if($mysqli->connect_errno != 0) {
+    echo "An error happened while trying to connect to the database: " . $mysqli->connect_error;
+    exit();
+}
+?>
