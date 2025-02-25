@@ -61,7 +61,8 @@ if(isset($_POST['url'])) {
             $currentTime = time();
             
             if(($currentTime - $lastUrlTime) < 5) {
-                echo "Please wait 5 seconds between shortening URLs.";
+                $remainingTime = 5 - ($currentTime - $lastUrlTime);
+                echo "Please wait {$remainingTime} seconds before shortening another URL.";
                 $mysqli->close();
                 exit;
             }
